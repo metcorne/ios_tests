@@ -27,8 +27,8 @@ class TestAppTests: XCTestCase {
         //Given
         let expectation = expectationWithDescription("findByTitle")
         
-        let repository = Repository()
-        let service: Service = Service(repository: repository)
+        let apiClient = APIClient()
+        let service: Service = Service(apiClient: apiClient)
         
         //When
         var mediaItem : MediaItem? = nil
@@ -46,12 +46,12 @@ class TestAppTests: XCTestCase {
         XCTAssertEqual(mediaItem!.title, "Rick and Morty")
     }
     
-    func testMocked() {
+    func testStubbed() {
         //Given
         let expectation = expectationWithDescription("findByTitle")
         
-        let repository = MockRepository()
-        let service: Service = Service(repository: repository)
+        let apiClient = StubbedAPICient()
+        let service: Service = Service(apiClient: apiClient)
         
         //When
         var mediaItem : MediaItem? = nil
@@ -69,12 +69,12 @@ class TestAppTests: XCTestCase {
         XCTAssertEqual(mediaItem!.title, "Rick and Morty")
     }
     
-    func testMocked500() {
+    func testStubbed500() {
         //Given
         let expectation = expectationWithDescription("findByTitle")
         
-        let repository = MockRepository500()
-        let service: Service = Service(repository: repository)
+        let apiClient = StubbedAPICient500()
+        let service: Service = Service(apiClient: apiClient)
         
         //When
         var mediaItem : MediaItem? = nil
@@ -104,8 +104,8 @@ class TestAppTests: XCTestCase {
             return fixture(stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        let repository = Repository()
-        let service: Service = Service(repository: repository)
+        let apiClient = APIClient()
+        let service: Service = Service(apiClient: apiClient)
         
         //When
         var mediaItem : MediaItem? = nil
@@ -145,8 +145,8 @@ class TestAppTests: XCTestCase {
             return OHHTTPStubsResponse(JSONObject: stubbedJSON, statusCode: 200, headers: .None)
         }
         
-        let repository = Repository()
-        let service: Service = Service(repository: repository)
+        let apiClient = APIClient()
+        let service: Service = Service(apiClient: apiClient)
         
         //When
         var mediaItem : MediaItem? = nil
@@ -175,8 +175,8 @@ class TestAppTests: XCTestCase {
             return fixture("", status: 500, headers: ["Content-Type":"application/json"])
         }
         
-        let repository = Repository()
-        let service: Service = Service(repository: repository)
+        let apiClient = APIClient()
+        let service: Service = Service(apiClient: apiClient)
         
         //When
         var mediaItem : MediaItem? = nil

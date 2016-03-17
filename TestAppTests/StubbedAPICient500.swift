@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MockRepository500: RepositoryProtocol {
+class StubbedAPICient500: APICientProtocol {
     func findByTitle(title: String, callback: (MediaItem?) -> Void) {
         callback(nil)
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Repository: RepositoryProtocol {
+class APIClient: APICientProtocol {
     func findByTitle(title: String, callback: (MediaItem?) -> Void) {
         let path = String(format: "http://www.imdb.com/xml/find?json=1&nr=1&tt=on&q=%@", title.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!)
         

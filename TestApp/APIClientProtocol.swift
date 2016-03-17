@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol RepositoryProtocol {
+protocol APICientProtocol {
     func findByTitle(title: String, callback: (MediaItem?) -> Void)
 }

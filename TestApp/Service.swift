@@ -9,13 +9,13 @@
 import UIKit
 
 class Service: NSObject {
-    var repository: RepositoryProtocol;
+    var apiClient: APICientProtocol;
     
-    init(repository: RepositoryProtocol) {
-        self.repository = repository
+    init(apiClient: APICientProtocol) {
+        self.apiClient = apiClient
     }
     
     func findByTitle(title: String, callback: (MediaItem?) -> Void) {
-        repository.findByTitle(title, callback: callback)
+        apiClient.findByTitle(title, callback: callback)
     }
 }

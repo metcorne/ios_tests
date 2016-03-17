@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MockRepository: RepositoryProtocol {
+class StubbedAPICient: APICientProtocol {
     func findByTitle(title: String, callback: (MediaItem?) -> Void) {
         let id = "tt2861424"
         let title = "Rick and Morty"
